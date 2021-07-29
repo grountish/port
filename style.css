@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap');
+
+body {
+    max-height: 100vh;
+}
+
+.main-section {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1.6fr 0.3fr;
+    grid-template-rows: 1.6fr 0.3fr;
+    /* gap: 1px 1px; */
+    grid-template-areas: "main-links main-links""three about";
+}
+
+.main-links {
+    grid-area: "main-links";
+}
+
+.main-link {
+    text-decoration: none;
+    font-size: 100px;
+    font-family: 'Archivo', sans-serif;
+    color: rgb(24, 24, 24);
+    transition: 2s;
+}
+
+.main-link:hover {
+    color: rgb(65, 77, 77);
+    margin: 10px;
+}
+
+.about {
+    /* width: 400px; */
+    margin: auto;
+    align-self: flex-end;
+
+}
+
+.about-text {
+    font-family: 'Archivo', sans-serif;
+    color: rgb(17, 15, 19);
+    text-align: justify;
+}
+
+#ruido {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    opacity: 0.3;
+    max-height: 100vh;
+
+}
+
+.web-section {
+    padding: 50px;
+    box-sizing: border-box;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.web-section * {
+    font-family: 'Archivo', sans-serif;
+}
+
+.web-container {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+}
+
+.web-img {
+    width: 400px;
+}
+
+.web-header {
+    font-size: 60px;
+    margin: 5px auto;
+    transition: 2s;
+    /* cursor: pointer; */
+}
+
+.web-header:hover {
+    transform: translate(-5%, 5%);
+    color: #fcfcfc;
+    text-shadow: -4px 3px 0 #3a50d9, -14px 7px 0 #0a0e27;
+    
+}
+
+.web-subheader {
+    max-width: 110px;
+    font-size: 30px;
+    display: none;
+}
+
+h4 {
+    position: absolute;
+}
+
+.imgWeb {
+    display: none;
+    max-width: 400px;
+    position: absolute;
+    right: 100px;
+    top: 200px;
+    z-index: -1;
+}
+
+#web-body {
+    cursor: none;
+}
+

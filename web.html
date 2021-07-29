@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Web</title>
+</head>
+
+<body id="web-body">
+    <!-- <img src="./resources/images/fondo.png" class="img-fondo" alt="sd"> -->
+    <section class="web-section">
+        <div class="web-container">
+            <h1 onmouseover="showPage('a')" class="web-header">Lavika</h1>
+            <h4 id="a" class="web-subheader">
+                Create, save and share music and visuals with the Lavika community.
+            </h4>
+        </div>
+        <div class="web-container">
+            <h1 onmouseover="showPage('b')" class="web-header">ExersAIze</h1>
+            <h4 id="b" class="web-subheader">
+                Finding Excercises with the help of AI
+            </h4>
+        </div>
+        <div class="web-container">
+            <h1 onmouseover="showPage('c')" class="web-header">C4A</h1>
+            <h4 id="c" class="web-subheader">
+                Create Beatiful Designs just by moving your hand!
+            </h4>
+        </div>
+        <div class="web-container">
+            <h1 onmouseover="showPage('d')" class="web-header">
+                Dictator-Killer
+            </h1>
+            <hc id="d" class="web-subheader" style="color:rgb(255, 187, 170)">
+                Kill the most known dictators with some clicks!
+            </hc>
+        </div>
+        <div class="web-container">
+            <h1 onmouseover="showPage('e')" class="web-header">
+                Cardinale-Bardot
+            </h1>
+            <h4 id="e" class="web-subheader" style="color:antiquewhite">Experimental Audio-visual Website</h4>
+        </div>
+        <div class="web-container">
+            <h1 onmouseover="showPage('f')" class="web-header">
+                Clarissa Watson
+            </h1>
+            <h4 id="f" class="web-subheader" style="color:antiquewhite">Personal Porfolio</h4>
+        </div>
+        <div>
+            <img class="imgWeb a" src="./resources/images/lavija.jpg" alt="">
+            <img class="imgWeb b" src="./resources/images/excerc.jpg" alt="">
+            <img class="imgWeb c" src="./resources/images/c4a.jpg" alt="">
+            <img class="imgWeb d" src="./resources/images/slide1.jpg" alt="">
+            <img class="imgWeb e" src="./resources/images/bardot.jpg" alt="">
+            <img class="imgWeb f" src="./resources/images/clarr.jpg" alt="">
+        </div>
+    </section>
+    <img id="ruido" src="./resources/rui.png" alt="ruid">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+
+</body>
+
+</html>
+
+<script>
+    const showPage = (id) => {
+        hideAllTheHeaders();
+        document.getElementById(id).style.display = "block";
+        document.getElementsByClassName(id)[0].style.display = 'block';
+    };
+
+    let headers = document.getElementsByClassName("web-subheader");
+    let imgs = document.getElementsByTagName('img');
+
+    let handi = [...headers, ...imgs];
+
+    const hideAllTheHeaders = () => {
+        handi.forEach((x) => {
+            x.style.display = "none";
+        });
+    };
+</script>
+<script>
+    let x = 1;
+    let y = 1;
+    let easing = 0.05;
+
+    function setup() {
+        let cnv = createCanvas(windowWidth, windowHeight);
+        cnv.position(0, 0);
+        cnv.style('z-index', '-3');
+
+    }
+
+    function draw() {
+
+        fill(255)
+        noStroke()
+        let targetX = mouseX;
+        let dx = targetX - x;
+        x += dx * easing;
+
+        let targetY = mouseY;
+        let dy = targetY - y;
+        y += dy * easing;
+
+        background(x / 4 - y / 5)
+
+        ellipse(x, y, mouseX / 20, mouseX / 20);
+
+        push();
+        fill(13,32,233)
+        translate(100 + mouseY * 0.1, y );
+        rotate(frameCount / 200.0 -mouseX / 200);
+        polygon(0, 0, 5, 3);
+        pop();
+
+
+    }
+
+    function polygon(x, y, radius, npoints) {
+        let angle = TWO_PI / npoints;
+        beginShape();
+        for (let a = 0; a < TWO_PI; a += angle) {
+            let sx = x + cos(a) * radius;
+            let sy = y + sin(a) * radius;
+            vertex(sx, sy);
+        }
+        endShape(CLOSE);
+    }
+</script>
